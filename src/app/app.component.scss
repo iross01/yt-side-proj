@@ -1,0 +1,30 @@
+h1{
+	font-family: 'Space Mono', monospace;
+}
+
+body{
+	background: #868686;
+} 
+
+.header{
+	width: 100%;
+	text-align: center;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	word-spacing: 2px;
+}
+
+main-content{
+	width: 100%;
+	height: 78vh;
+}
+
+button{
+	padding: 15px 40px;
+    border-radius: 25px;
+    border: none;
+    outline: none;
+    color: white;
+    background-color: rgb(75, 75, 117);
+    margin: 0 auto;
+}
