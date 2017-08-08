@@ -1,3 +1,4 @@
+	<div *ngIf="currentStep>0" (click)="currentStep=currentStep-1" class="back" style="position: absolute;left: 0px;top: 20px;">back</div>
 <div class="step-1" [class.currentStep]="currentStep==0" [class.prevStep]="currentStep>0">
 	<div  class="logo">
 		<img src="assets/yt-logo.png" alt="">

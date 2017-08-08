@@ -38,7 +38,11 @@ p{
 	display: flex;
 }
 
-.flex.center{
+.center{
+    align-items: center;
+}
+
+.flex-center{
 	height: 100%;
     align-items: center;
 }
