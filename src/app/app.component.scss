@@ -16,15 +16,78 @@ body{
 
 main-content{
 	width: 100%;
-	height: 78vh;
+	height: 77vh;
 }
 
 button{
-	padding: 15px 40px;
-    border-radius: 25px;
+	padding: 20px 35px;
+    border-radius: 2px;
     border: none;
     outline: none;
     color: white;
-    background-color: rgb(75, 75, 117);
+    background-color: rgba(9, 113, 178, 0.3);
     margin: 0 auto;
+    font-size: 1.3em;
+    cursor: pointer;
+    transition: 0.25s;
+}
+
+button:hover{
+    background-color: rgba(9, 113, 178, 0.2);
+}
+
+.setup{
+	width: 100%;
+	text-align: center;
+	height: 100%;
+}
+
+.container{
+	margin: 0 auto;
+	width: 50%;
+	height: 100%;
+	background-color: rgba(255,255,255,0.01);
+	max-width: 450px;
+	flex-direction: column;
+	max-height: 520px;
+	overflow: hidden;
+}
+
+.container p{
+	height: 45%;
+    padding: 10px 20px;
+    text-align: center;
+}
+
+.container img{
+	height: 250px;
+    opacity: 0.1;
+    width: 250px;
+    margin: 20px auto 0;
+}
+
+.desc{
+	height: 25%;
+	margin: 0 auto;
+}
+
+.logo{
+	height: 55%;
+	margin: 0 auto;
+}
+
+.cta{
+	height: 20%;
+	margin: 0 auto;
+}
+
+.step-1{
+	transition: 1s;
+}
+
+.step-1.currentStep{
+	height: 100%;
+}
+.step-1.prevStep{
+	margin-left: -400px;
 }

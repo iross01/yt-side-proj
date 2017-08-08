@@ -1,1 +1,11 @@
-<button>Start</button>
+<div class="step-1" [class.currentStep]="currentStep==0" [class.prevStep]="currentStep>0">
+	<div  class="logo">
+		<img src="assets/yt-logo.png" alt="">
+	</div>
+	<div class="desc">
+		<p>YouTube subscriptions suck.<br>Let's make them better.</p>
+	</div>
+	<div class="cta">
+		<button (click)="nextStep()">Get started</button>
+	</div>
+</div>
