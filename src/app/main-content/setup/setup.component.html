@@ -1,4 +1,5 @@
-	<div *ngIf="currentStep>0" (click)="currentStep=currentStep-1" class="back" style="position: absolute;left: 0px;top: 20px;">back</div>
+<div *ngIf="currentStep>0" (click)="currentStep=currentStep-1" class="back" style="position: absolute;left: 0px;top: 20px;">back</div>
+
 <div class="step-1" [class.currentStep]="currentStep==0" [class.prevStep]="currentStep>0">
 	<div  class="logo">
 		<img src="assets/yt-logo.png" alt="">
@@ -8,5 +9,13 @@
 	</div>
 	<div class="cta">
 		<button (click)="nextStep()">Get started</button>
+	</div>
+</div>
+
+<div class="step-2" [class.nextStep]="currentStep==0" [class.currentStep]="currentStep==1" [class.prevStep]="currentStep>1">
+	<h1>Youtube Search</h1>
+	<input type="text" [formControl]="search">
+	<div *ngFor="let video of results | async" >
+		<a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}</a>
 	</div>
 </div>

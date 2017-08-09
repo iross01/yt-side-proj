@@ -48,7 +48,6 @@ button:hover{
 	height: 100%;
 	background-color: rgba(255,255,255,0.01);
 	max-width: 450px;
-	flex-direction: column;
 	max-height: 450px;
 	overflow: hidden;
 	position: relative;
@@ -102,4 +101,12 @@ button:hover{
 .step-1.prevStep{
 	margin-left: -900px;
 	opacity: 0;
+}
+
+.step-2.nextStep{
+	margin-left: 1150px;
+}
+
+.step-2.currentStep{
+	margin-left: 700px;
 }
