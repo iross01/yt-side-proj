@@ -1,4 +1,6 @@
-<div *ngIf="currentStep>0" (click)="currentStep=currentStep-1" class="back" style="position: absolute;left: 0px;top: 20px;">back</div>
+<div [class.showArrow]="currentStep>0" (click)="currentStep=currentStep-1" class="arrow back">
+	<img src="../assets/circle-left.png" alt="">
+</div>
 
 <div class="step-1" [class.currentStep]="currentStep==0" [class.prevStep]="currentStep>0">
 	<div  class="logo">
@@ -13,9 +15,26 @@
 </div>
 
 <div class="step-2" [class.nextStep]="currentStep==0" [class.currentStep]="currentStep==1" [class.prevStep]="currentStep>1">
-	<h1>Youtube Search</h1>
-	<input type="text" [formControl]="search">
-	<div *ngFor="let video of results | async" >
-		<a href="https://www.youtube.com/watch?v={{video.id.videoId}}">{{video.snippet.title}}</a>
+	<h1>Select your favourite channels</h1>
+	<div class="search-input">
+		<input type="text" [formControl]="search" placeholder="Enter a channel name">
+		<img (click)="clearSearch()" *ngIf="search.value" src="../assets/cross.png" alt="">
 	</div>
+	<ul class="list" [class.showList]="search.value">
+		<li>
+			<div (click)="addToSelected(video)" class="result-item" *ngFor="let video of results | async" >
+				<a>
+				<img src="{{video.snippet.thumbnails.default.url}}" alt="">
+				{{video.snippet.title}}
+				</a>
+			</div>
+		</li>
+	</ul>
+	<div *ngIf="channels.length" class="channels-selected">
+		<img src="{{channels[channels.length-1].icon}}" alt="">
+		<span class="count">{{channels.length}}</span>
+	</div>
+</div>
+<div [class.showArrow]="currentStep>0 && channels.length" (click)="currentStep=currentStep+1" class="arrow next">
+	<img src="../assets/circle-left.png" alt="">
 </div>

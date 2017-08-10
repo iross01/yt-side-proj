@@ -11,7 +11,7 @@ export class YoutubeApiService {
 	constructor(private http:Http) {}
 
 	public search(query){
-		return this.http.get(`${BASE_URL}?q=${query}&part=snippet&key=${API_TOKEN}`)
+		return this.http.get(`${BASE_URL}?q=${query}&type=channel&part=snippet&key=${API_TOKEN}`)
 		.map((res:Response) => res.json())
 		.map(json => json.items);
 	}

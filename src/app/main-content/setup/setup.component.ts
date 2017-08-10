@@ -2,9 +2,8 @@ import { Component, NgModule } from '@angular/core';
 import { YoutubeApiService} from '../../services/youtubeapi.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
-import 'rxjs/add/operator/debounceTime';
-import 'rxjs/add/operator/switchMap';
-import 'rxjs/add/operator/map';
+import {Channel} from "../../interfaces/channel";
+
 
 @Component({
   selector: 'setup',
@@ -18,7 +17,7 @@ import 'rxjs/add/operator/map';
     ReactiveFormsModule,
   ]})
 
-export class SetupComponent {
+export class SetupComponent{
 
 	currentStep:number=0;
 
@@ -26,15 +25,27 @@ export class SetupComponent {
 
 	results: Observable<any>;
 
+	channels: Channel[] = [];
+
+	clone=false;
+
 	constructor(public youtube:YoutubeApiService){
-		if(this.search.value != ''){
-			this.results = this.search.valueChanges.debounceTime(200).switchMap(query => youtube.search(query));
-		} else {
-			this.results = null;
-		}
+		this.results = this.search.valueChanges.debounceTime(200).switchMap(query => youtube.search(query));
 	}
 
 	public nextStep(){
 		this.currentStep++;
+	}
+
+	public clearSearch(){
+		this.search.setValue(null);
+	}
+
+	public addToSelected(channelSelected){
+		this.channels.push({name: channelSelected.snippet.channelTitle, 
+			icon:channelSelected.snippet.thumbnails.default.url,
+			url:'https://www.youtube.com/c/' + channelSelected.snippet.channelId});
+		console.log(this.channels);
+		this.clearSearch();
 	}
 }

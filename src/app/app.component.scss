@@ -47,10 +47,11 @@ button:hover{
 	width: 50%;
 	height: 100%;
 	background-color: rgba(255,255,255,0.01);
-	max-width: 450px;
+	width: 450px;
 	max-height: 450px;
 	overflow: hidden;
 	position: relative;
+	flex-direction: column;
 }
 
 .container p{
@@ -89,10 +90,12 @@ button:hover{
 	margin: 10px auto 0px;
 }
 
-.step-1{
+.step-1,.step-2{
 	height: 100%;
-	transition: 0.7s;
 	position: relative;
+	transition: all 0.7s;
+	display: inline-block;
+	width: 450px;
 }
 
 .step-1.currentStep{
@@ -104,9 +107,149 @@ button:hover{
 }
 
 .step-2.nextStep{
-	margin-left: 1150px;
+	opacity: 0;
+	margin-left: 825px;
+    margin-top: -450px;
 }
 
 .step-2.currentStep{
-	margin-left: 700px;
+	opacity: 1;
+    margin-top: -450px;
+}
+
+.step-2 ul{
+	list-style: none;
+    max-width: 80%;
+    margin: 0 auto;
+    background: rgba(0,0,0,0.1);
+    overflow-y: scroll;
+    padding: 0px;
+}
+
+.step-2 input{
+	width: 80%;
+    border-radius: 2px;
+    border: none;
+    outline: none;
+    padding: 10px 0px;
+    text-indent: 20px;
+    margin-bottom: 10px;
+    font-size: 1.1em;
+    color: #FFF;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.step-2 img{
+	height: 40px;
+	width: 40px;
+	margin-right: 10px;
+    padding-left: 20px;
+}
+
+.step-2 .result-item{
+	float: left;
+	width: 100%;
+	height: 40px;
+	padding: 10px 0px;
+	border-bottom: 1px solid #373b48;
+}
+
+.step-2 .result-item:hover{
+	background-color: rgba(55, 59, 72, 0.3);
+	cursor: pointer;
+}
+
+.step-2 .result-item a{
+    align-items: center;
+	color: white;
+    display: flex;
+	float: left;
+    text-decoration: none;
+}
+
+.step-2 h1{
+	font-family: 'Libre Franklin', sans-serif;
+	font-size: 1.6em;
+}
+
+.arrow{
+	opacity: 0;
+	position: absolute;
+	z-index:5;
+	transition: 0.1s;
+}
+
+.back{
+	left: 10px;
+	bottom: 10px;
+}
+
+.showArrow{
+	opacity: 0.3;
+	transition: 0.3s;
+}
+
+.showArrow:hover{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.list{
+	opacity: 0;
+	transition: opacity 0.2s, height 0.7s;
+	height: 0%;
+}
+
+.showList{
+	opacity: 1;
+	height: 60%;
+}
+
+.search-input{
+	position: relative;
+}
+
+.search-input img{
+	right: 60px;
+    top: 12px;
+    height: 15px;
+    width: 15px;
+    position: absolute;
+    margin: 0px;
+    padding: 0px;
+    opacity: 0.3;
+}
+
+.search-input img:hover{
+	opacity: 0.5;
+	cursor: pointer;
+}
+
+.next{
+	transform: rotateY(180deg);
+	bottom: 10px;
+	right: 10px;
+}
+
+.channels-selected{
+    position: absolute;
+    bottom: 20px;
+    right: 55px;
+}
+
+.channels-selected img{
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    margin-right: -14px;
+    padding: 0px;
+    margin-bottom: -8px;
+}
+
+.channels-selected span{
+	margin-left: -7px;
+    color: #111;
+    background: white;
+    padding: 5px 10px;
+    border-radius: 50%;
 }
