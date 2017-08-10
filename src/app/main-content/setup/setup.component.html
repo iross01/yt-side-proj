@@ -35,6 +35,21 @@
 		<span class="count">{{channels.length}}</span>
 	</div>
 </div>
+
+<div class="step-3" [class.nextStep]="currentStep!=2 && currentStep < 2" [class.currentStep]="currentStep==2" [class.prevStep]="currentStep>2">
+	<h1>Rank your favourite channels</h1>
+	<ul class="list" [class.showList]="search.value">
+		<li>
+			<div class="result-item" *ngFor="let channel of channels" >
+				<img src="{{channel.icon}}" alt="">
+				<a>{{channel.name}}</a>
+			</div>
+		</li>
+	</ul>
+</div>
+
+
+
 <div [class.showArrow]="currentStep>0 && channels.length" (click)="currentStep=currentStep+1" class="arrow next">
 	<img src="../assets/circle-left.png" alt="">
 </div>
