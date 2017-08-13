@@ -22,15 +22,15 @@
 	</div>
 	<ul class="list" [class.showList]="search.value">
 		<li>
-			<div (click)="addToSelected(video)" class="result-item" *ngFor="let video of results | async" >
+			<div (click)="addToSelected(channel)" class="result-item" *ngFor="let channel of results | async" >
 				<a>
-				<img src="{{video.snippet.thumbnails.default.url}}" alt="">
-				{{video.snippet.title}}
+				<img src="{{channel.snippet.thumbnails.default.url}}" alt="">
+				{{channel.snippet.title}}
 				</a>
 			</div>
 		</li>
 	</ul>
-	<div *ngIf="channels.length" class="channels-selected">
+	<div [class.justAdded]="justAdded" [class.beenAdded]="!justAdded" *ngIf="channels.length" class="channels-selected">
 		<img src="{{channels[channels.length-1].icon}}" alt="">
 		<span class="count">{{channels.length}}</span>
 	</div>
@@ -38,12 +38,12 @@
 
 <div class="step-3" [class.nextStep]="currentStep!=2 && currentStep < 2" [class.currentStep]="currentStep==2" [class.prevStep]="currentStep>2">
 	<h1>Rank your favourite channels</h1>
-	<ul class="list" [class.showList]="search.value">
-		<li>
-			<div class="result-item" *ngFor="let channel of channels" >
-				<img src="{{channel.icon}}" alt="">
-				<a>{{channel.name}}</a>
-			</div>
+	<ul [dragula]='"bag-channels"' [dragulaModel]='channels' class="list showList">
+		<li class="result-item" *ngFor="let channel of channels">
+			<a>
+			<img src="{{channel.icon}}" alt="">
+			{{channel.name}}
+			</a>
 		</li>
 	</ul>
 </div>

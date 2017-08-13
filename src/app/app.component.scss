@@ -101,7 +101,8 @@ button:hover{
 .step-1.currentStep{
 	opacity: 1;
 }
-.step-1.prevStep{
+.step-1.prevStep,
+.step-2.prevStep{
 	margin-left: -900px;
 	opacity: 0;
 }
@@ -113,10 +114,14 @@ button:hover{
     margin-top: -450px;
 }
 
-.step-2.currentStep,
-.step-2.currentStep{
-	opacity: 1;
+.step-2,
+.step-3{
     margin-top: -450px;
+}
+
+.step-2.currentStep,
+.step-3.currentStep{
+	opacity: 1;
 }
 
 .step-2 ul,
@@ -254,6 +259,8 @@ button:hover{
     padding: 0px;
     margin-bottom: -8px;
     border: 1px solid #555;
+    transform: scale(1);
+	transition: 0.4s ease;
 }
 
 .channels-selected span{
@@ -263,4 +270,14 @@ button:hover{
     padding: 5px 10px;
     border-radius: 50%;
     border: 1px solid #555;
+}
+ 
+.justAdded img{
+	transform: scale(1.5);
+	transition: 0.4s ease;
+}
+
+.beenAdded img{
+	transform: scale(1);
+	transition: 0.4s ease;
 }

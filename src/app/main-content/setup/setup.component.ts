@@ -3,6 +3,7 @@ import { YoutubeApiService} from '../../services/youtubeapi.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
 import {Channel} from "../../interfaces/channel";
+import { DragulaService } from 'ng2-dragula/ng2-dragula';
 
 
 @Component({
@@ -29,8 +30,13 @@ export class SetupComponent{
 
 	clone=false;
 
-	constructor(public youtube:YoutubeApiService){
+	justAdded = false;
+
+	constructor(public youtube:YoutubeApiService, private dragula: DragulaService){
 		this.results = this.search.valueChanges.debounceTime(200).switchMap(query => youtube.search(query));
+		this.dragula.setOptions('bag-channels', {
+	      revertOnSpill: true
+	    });
 	}
 
 	public nextStep(){
@@ -45,7 +51,12 @@ export class SetupComponent{
 		this.channels.push({name: channelSelected.snippet.channelTitle, 
 			icon:channelSelected.snippet.thumbnails.default.url,
 			url:'https://www.youtube.com/c/' + channelSelected.snippet.channelId});
-		console.log(this.channels);
 		this.clearSearch();
+		this.justAdded=true;
+		setTimeout(() => {
+			this.justAdded = false;
+			console.log("works tho");
+		}, 1);
+
 	}
 }

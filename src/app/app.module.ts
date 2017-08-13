@@ -10,6 +10,8 @@ import { MainContentComponent } from './main-content/main-content.component';
 import { SetupComponent } from './main-content/setup/setup.component';
 import { YoutubeApiService } from './services/youtubeapi.service';
 
+import { DragulaModule } from 'ng2-dragula/ng2-dragula';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -23,6 +25,7 @@ import { YoutubeApiService } from './services/youtubeapi.service';
     FormsModule,
     HttpModule,
     ReactiveFormsModule,
+    DragulaModule
   ],
   providers: [YoutubeApiService, FormsModule],
   bootstrap: [AppComponent]
