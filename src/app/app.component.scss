@@ -125,7 +125,8 @@ button:hover{
 }
 
 .step-2 ul,
-.step-3 ul{
+.step-3 ul,
+.gu-mirror ul{
 	list-style: none;
     max-width: 80%;
     margin: 0 auto;
@@ -135,7 +136,8 @@ button:hover{
 }
 
 .step-2 input,
-.step-3 input{
+.step-3 input,
+.gu-mirror input{
 	width: 80%;
     border-radius: 2px;
     border: none;
@@ -149,7 +151,8 @@ button:hover{
 }
 
 .step-2 img,
-.step-3 img{
+.step-3 img,
+.gu-mirror img{
 	height: 40px;
 	width: 40px;
 	margin-right: 10px;
@@ -157,7 +160,8 @@ button:hover{
 }
 
 .step-2 .result-item,
-.step-3 .result-item{
+.step-3 .result-item,
+.gu-mirror .result-item{
 	float: left;
 	width: 100%;
 	height: 40px;
@@ -172,7 +176,8 @@ button:hover{
 }
 
 .step-2 .result-item a,
-.step-3 .result-item a{
+.step-3 .result-item a,
+.gu-mirror .result-item a{
     align-items: center;
 	color: white;
     display: flex;
@@ -261,6 +266,8 @@ button:hover{
     border: 1px solid #555;
     transform: scale(1);
 	transition: 0.4s ease;
+	position: relative;
+	z-index: -1;
 }
 
 .channels-selected span{
@@ -274,10 +281,10 @@ button:hover{
  
 .justAdded img{
 	transform: scale(1.5);
-	transition: 0.4s ease;
+	position: relative;
 }
 
 .beenAdded img{
 	transform: scale(1);
-	transition: 0.4s ease;
+	transition: 0.5s ease;
 }

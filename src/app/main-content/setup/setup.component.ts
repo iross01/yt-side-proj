@@ -56,7 +56,7 @@ export class SetupComponent{
 		setTimeout(() => {
 			this.justAdded = false;
 			console.log("works tho");
-		}, 1);
+		}, 100);
 
 	}
 }
