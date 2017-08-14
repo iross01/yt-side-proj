@@ -46,3 +46,27 @@ p{
 	height: 100%;
     align-items: center;
 }
+
+body.gu-unselectable {
+ 	list-style: none
+}
+
+body.gu-unselectable .result-item{
+ 	display: flex;
+}
+
+ul::-webkit-scrollbar-track
+{
+	background-color: #353946;
+}
+
+ul::-webkit-scrollbar
+{
+	width: 15px;
+	background-color: #353946;
+}
+
+ul::-webkit-scrollbar-thumb
+{
+	background-color: #646770;
+}

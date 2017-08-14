@@ -48,6 +48,14 @@ export class SetupComponent{
 	}
 
 	public addToSelected(channelSelected){
+		for(let channel of this.channels){
+			if(channel.url === 'https://www.youtube.com/c/' + channelSelected.snippet.channelId){
+				console.log(channel.url);
+				console.log(channelSelected.snippet.channelId);
+				console.log("FUK M8");
+				return;
+			}
+		}
 		this.channels.push({name: channelSelected.snippet.channelTitle, 
 			icon:channelSelected.snippet.thumbnails.default.url,
 			url:'https://www.youtube.com/c/' + channelSelected.snippet.channelId});
@@ -55,8 +63,6 @@ export class SetupComponent{
 		this.justAdded=true;
 		setTimeout(() => {
 			this.justAdded = false;
-			console.log("works tho");
 		}, 100);
-
 	}
 }
