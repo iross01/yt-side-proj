@@ -1,4 +1,4 @@
-<div [class.showArrow]="currentStep>0" (click)="currentStep=currentStep-1" class="arrow back">
+<div [class.showArrow]="currentStep>0" (click)="prevStep()" class="arrow back">
 	<img src="../assets/circle-left.png" alt="">
 </div>
 
@@ -48,6 +48,6 @@
 	</ul>
 </div>
 
-<div [class.showArrow]="currentStep>0 && channels.length" (click)="currentStep=currentStep+1" class="arrow next">
+<div [class.showArrow]="currentStep>0 && channels.length" (click)="nextStep()" class="arrow next">
 	<img src="../assets/circle-left.png" alt="">
 </div>

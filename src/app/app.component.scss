@@ -298,8 +298,11 @@ button:hover{
 
 .prompt-arrow{
     position: absolute;
-    bottom: -90px;
-    right: -235px;
+    bottom: -100px;
+    right: -225px;
+    transform: scale(0.6);
+    opacity: 0;
+    transition: 0.4s;
 }
 
 .prompt-arrow h1{
@@ -325,4 +328,9 @@ button:hover{
 
 .inner{
 	overflow: hidden;
+}
+
+.showPrompt{
+	transform: scale(1);
+	opacity: 1;
 }

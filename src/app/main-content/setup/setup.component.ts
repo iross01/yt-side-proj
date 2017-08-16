@@ -1,4 +1,4 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, EventEmitter } from '@angular/core';
 import { YoutubeApiService} from '../../services/youtubeapi.service';
 import {FormControl, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {Observable} from 'rxjs/Observable';
@@ -10,7 +10,8 @@ import { DragulaService } from 'ng2-dragula/ng2-dragula';
   selector: 'setup',
   templateUrl: './setup.component.html',
   styleUrls: ['./../../app.component.scss'],
-  providers: [YoutubeApiService]
+  providers: [YoutubeApiService],
+  outputs: ['outputCurrentStep']
 })
 @NgModule({
   imports: [
@@ -32,6 +33,8 @@ export class SetupComponent{
 
 	justAdded = false;
 
+	outputCurrentStep: EventEmitter<number> = new EventEmitter<number>();
+
 	constructor(public youtube:YoutubeApiService, private dragula: DragulaService){
 		this.results = this.search.valueChanges.debounceTime(200).switchMap(query => youtube.search(query));
 		this.dragula.setOptions('bag-channels', {
@@ -41,6 +44,14 @@ export class SetupComponent{
 
 	public nextStep(){
 		this.currentStep++;
+		this.outputCurrentStep.emit(this.currentStep);
+		console.log(this.currentStep);
+	}
+
+	public prevStep(){
+		this.currentStep--;
+		this.outputCurrentStep.emit(this.currentStep);
+		console.log(this.currentStep);
 	}
 
 	public clearSearch(){
