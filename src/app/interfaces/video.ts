@@ -1,6 +1,6 @@
-export interface Channel {
+export interface Video {
 	name: string;
   	icon: string;
   	url: string;
-  	id: string;
+  	channel:string;
 }

@@ -16,4 +16,10 @@ export class YoutubeApiService {
 		.map(json => json.items);
 	}
 
+	public getVideos(channel){
+		return this.http.get(`${BASE_URL}?type=video&part=snippet&channelId=${channel.id}&maxResults=1&order=date&key=${API_TOKEN}`)
+		.map((res:Response) => res.json())
+		.map(json => json.items);	
+	}
+
 }
