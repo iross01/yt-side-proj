@@ -1,5 +1,5 @@
-<div class="setup flex-center flex outer">
-	<setup *ngIf="showSetup" class="setup flex-center container flex inner" (outputCurrentStep)="currentStep = $event" (chosenChannels)="generateSubs($event)"></setup>
+<div *ngIf="showSetup" class="setup flex-center flex outer">
+	<setup class="setup flex-center container flex inner" (outputCurrentStep)="currentStep = $event" (chosenChannels)="generateSubs($event)"></setup>
 	<div [class.showPrompt]="currentStep == 2" class="prompt-arrow">
 		<div class="arrow-parts">
 			<img src="../assets/Curved_Arrow.svg.png" alt="">
@@ -8,12 +8,12 @@
 	</div>
 </div>
 
-<div *ngIf="!showSetup" class="setup flex-center flex outer">
+<div *ngIf="!showSetup" class="setup flex-center flex">
 	<ul>
 		<li class="subscription" *ngFor="let sub of results">
-			<img src="{{sub.snippet.thumbnails.default.url}}" alt="">	
+			<div class="subscription-icon" [style.background-image]="'url(' + sub.snippet.thumbnails.high.url + ')'"></div>
 			<h3>{{sub.snippet.title}}</h3>
-			<h3>{{sub.snippet.channelTitle}}</h3>
+			<h4>{{sub.snippet.channelTitle}}</h4>
 		</li>
 	</ul>
 </div>

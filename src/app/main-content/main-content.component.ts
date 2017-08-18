@@ -21,9 +21,8 @@ export class MainContentComponent {
 	public generateSubs(channels){
 		for(let channel of channels){
 			this.youtubeService.getVideos(channel)
-			.subscribe(value => this.results.push(value[0]));
+			.subscribe(value => {if(value[0].snippet){this.results.push(value[0])}});
 		}
-		console.log(this.results);
 		this.showSetup=false;
 	}
 }
